@@ -1,0 +1,12 @@
+# services:
+#   meal_demand_streamlit:
+#       build:
+#         context: .
+#         dockerfile: Dockerfile
+#       ports:
+#         - "8501:8501"
+#       environment:
+#         NEON_URL: 
+
+#       volumes:
+#         - ./app:/app
