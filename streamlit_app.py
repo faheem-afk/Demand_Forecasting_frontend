@@ -1,9 +1,8 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-import os
 
-from postgres import run_query
+
 
 
 # NEON_URL = os.getenv("NEON_URL")
