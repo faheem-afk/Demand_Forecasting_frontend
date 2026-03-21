@@ -1,87 +1,133 @@
-🚀 Demand Forecasting Dashboard (Live Deployment)
+<h1 align="center">📊 Demand Forecasting Dashboard (Live)</h1>
 
-👉 Live App: https://demandforecastt.streamlit.app
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?size=22&duration=3000&color=36BCF7&center=true&vCenter=true&width=650&lines=Real-Time+Demand+Forecasting+Dashboard;12-Week+Predictions+Across+Cities;Built+for+Fast%2C+Scalable+Access" />
+</p>
 
-An interactive machine learning-powered dashboard for forecasting meal demand across cities, built using a production-style pipeline and deployed with cloud-native components.
+<p align="center">
+  <a href="https://demandforecastt.streamlit.app">
+    <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=streamlit" />
+  </a>
+  <img src="https://img.shields.io/badge/Deployment-Cloud-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Database-Neon%20Postgres-orange?style=for-the-badge" />
+</p>
 
-📌 Overview
+---
 
-This application provides real-time access to multi-week demand forecasts, enabling users to explore trends across cities and meals through an intuitive interface.
+## 📌 Overview
 
-The system is powered by a multi-horizon forecasting pipeline and designed with a clear separation between model development and deployment.
+This is the **live deployment** of a production-style demand forecasting system.
 
+An interactive dashboard that provides **real-time access to multi-week forecasts**,  
+built with a clear separation between model development and deployment.
 
-🧠 What the App Does
-	•	Forecasts demand up to 12 weeks ahead
-	•	Enables interactive exploration of demand across cities and meals
-	•	Provides real-time querying of precomputed predictions
-	•	Displays key insights through a clean and user-friendly dashboard
+👉 Not just predictions — a system designed for **fast, reliable decision access**
 
+---
 
-⚙️ Deployment Architecture
+## 🧠 What the App Does
+
+- Forecasts demand up to **12 weeks ahead**  
+- Enables interactive exploration across **cities & meals**  
+- Queries predictions in **real-time**  
+- Displays insights through a clean, intuitive dashboard  
+
+---
+
+## ⚙️ Architecture
 
 Streamlit (Frontend)
-        ↓
+↓
 Neon Postgres (Database)
-        ↓
+↓
 Precomputed Forecasts (XGBoost models)
 
-Key Components:
-	•	Streamlit → Interactive frontend dashboard
-	•	Neon (Serverless Postgres) → Cloud-hosted database for storing predictions
-	•	ML Pipeline (offline) → Generates and uploads forecasts
+### Key Components
+
+- **Streamlit** → Interactive frontend  
+- **Neon (Serverless Postgres)** → Scalable cloud database  
+- **ML Pipeline (offline)** → Generates and uploads forecasts  
+
+---
+
+## 📊 Model Highlights
+
+- Multi-horizon forecasting using **12 XGBoost models**  
+- Trained on:
+  - ~320,000 rows  
+  - 32 engineered features  
+
+Time-series features include:
+- Lag variables  
+- Rolling statistics  
+
+👉 Predictions are **precomputed** and stored → fast retrieval
+
+---
+
+## 🔍 Interpretability (SHAP)
+
+Used SHAP to understand model behavior.
+
+📈 Key drivers:
+- `num_orders` (historical demand)  
+- `num_orders_rolling_16_week`  
+
+👉 Demand patterns are driven by **recent + smoothed history**
+
+---
+
+## ⚡ Performance & Design
+
+- Precomputed predictions → **low-latency experience**  
+- Efficient querying via Streamlit DB connection  
+- Serverless Postgres → **scalable by design**  
+- Secure access via parameterized queries  
+
+---
+
+## 🖥️ How It Works
+
+1. ML pipeline generates forecasts (offline)  
+2. Predictions are uploaded to Neon Postgres  
+3. Streamlit app queries data in real-time  
+4. Users explore insights through dashboards  
+
+---
+
+## 🔐 Notes
+
+- Production uses **Neon (not local PostgreSQL)**  
+- No Docker in production (dev-only)  
+- Credentials managed securely via environment/secrets  
+
+---
+
+## 💡 Key Takeaways
+
+- Production ML ≠ just models  
+- Separation of concerns → better scalability  
+- Cloud-native databases simplify deployment  
+- Precomputing → fast, responsive dashboards  
+
+---
+
+## 🌐 Live App
+
+👉 https://demandforecastt.streamlit.app
+
+---
+
+## 📫 Connect
+
+- LinkedIn: https://www.linkedin.com/in/faheem-bht  
+- Email: adahm7114@gmail.com  
+
+---
+
+<p align="center">
+  ⭐ If you found this useful, consider starring the repo!
+</p>
 
 
-📊 Model Highlights
-	•	Multi-horizon forecasting using 12 XGBoost models
-	•	Trained on ~320K rows with 32 engineered features
-	•	Time-series features include:
-	•	Lag variables
-	•	Rolling statistics
-	•	Predictions are precomputed and stored in the database for fast retrieval
-
-
-🔍 Model Interpretability
-
-Used SHAP to analyze feature importance.
-
-Key findings:
-	•	Historical demand (num_orders)
-	•	16-week rolling average demand
-
-These features consistently contributed most to model predictions.
-
-
-⚡ Performance & Design
-	•	Precomputed predictions → low-latency dashboard experience
-	•	Efficient querying using Streamlit’s database connection layer
-	•	Scalable architecture using serverless Postgres (Neon)
-	•	Secure data access via parameterized queries
-
-
-🖥️ How It Works
-	1.	ML pipeline generates forecasts (offline)
-	2.	Predictions are uploaded to Neon Postgres
-	3.	Streamlit app queries data in real-time
-	4.	Users interact with dashboards and explore insights
-
-
-🔐 Notes
-	•	This deployment uses Neon instead of local PostgreSQL
-	•	No Docker is used in production — only in development
-	•	Database credentials are securely managed via environment/secrets
-
-
-💡 Key Takeaways
-	•	Production ML systems require more than just models
-	•	Separation of training, storage, and visualization improves scalability
-	•	Cloud-native databases simplify deployment and access
-	•	Precomputing predictions enables fast and responsive dashboards
-
-
-📬 Contact
-	•	LinkedIn: https://www.linkedin.com/in/faheem-bht
-	•	Email: adahm7114@gmail.com
-
-
-⭐ If you find this useful, feel free to share or connect!
+⸻
