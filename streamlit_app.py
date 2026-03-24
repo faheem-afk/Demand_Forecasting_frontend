@@ -17,17 +17,19 @@ import altair as alt
 
 # Load data
 
-conn = st.connection("postgresql", type="sql")
-current_meal_demand_df = conn.query("SELECT * FROM current_meal_demand;", ttl="10m")
+# conn = st.connection("postgresql", type="sql")
+# current_meal_demand_df = conn.query("SELECT * FROM current_meal_demand;", ttl="10m")
+
+current_meal_demand_df = pd.read_csv("df_predictions.csv")
 
 number_of_forecasted_weeks = current_meal_demand_df[
     current_meal_demand_df["period"] == "Future"
 ].week_number.nunique()
 
-updated_date = (
-                conn.query("SELECT updated_date FROM current_meal_demand_metadata;", ttl="10m"
-                    )["updated_date"].astype(str).tolist()[0]
-            )
+# updated_date = (
+#                 conn.query("SELECT updated_date FROM current_meal_demand_metadata;", ttl="10m"
+#                     )["updated_date"].astype(str).tolist()[0]
+#             )
 
 
 def get_future_demand_df(current_meal_demand_df):
@@ -72,7 +74,6 @@ st.markdown(
     f"""
 Current predicted order demand for the kingdom.
 
-**Date**: {updated_date}{soft_returns}
 **Number of Future Weeks**: {number_of_forecasted_weeks}{soft_returns}
 **Future Weeks**: {[int(week) for week in sorted(future_demand_df.week_number.unique())]}
 """
